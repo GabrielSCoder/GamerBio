@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  font-family: 'Orbitron', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+  color: #e4e4e7;
+  background: radial-gradient(circle at top, #18181c 0%, #0d0d10 100%);
+}
+
+/* Tema claro */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+    color: #213547;
+  }
+}
+
+/* Links estilo neon */
+a {
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+a:hover {
+  color: #0ff;
+  text-shadow: 0 0 6px #0ff, 0 0 12px #0ff;
+}
+
+button {
+  background-color: #1e1e24;
+  color: #fff;
+  border-radius: 8px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  background-color: #27272f;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+body {
+  background: radial-gradient(circle at center, #0f0f1a, #050509);
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(circle at center, #0f0f1a, #050509);
+}
+
+.bg-radial-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+
+@keyframes moveGrid {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
