@@ -1,6 +1,3 @@
-import BioCard from "./BioCard";
-import GamesFavoritos from "./GamesFavoritos";
-
 export default function Gamerfolio() {
     return (
         <div className="flex flex-col">

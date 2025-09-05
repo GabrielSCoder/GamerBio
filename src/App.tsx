@@ -1,7 +1,4 @@
 import MainRoute from './components/Routes'
-import MainRotute from './components/Routes'
-import HomePage from './Pages/Home'
-import Gamerfolio from './templates/Gamerfolio'
 
 function App() {
 

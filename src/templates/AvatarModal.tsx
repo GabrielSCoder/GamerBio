@@ -8,7 +8,7 @@ export default function AvatarModal(props: {
     setConfirmModal: (val: boolean) => void;
 }) {
     const handleChange = (value: string) => {
-        props.setPfTemp(prev => ({ ...prev, avatar_url: value }));
+        props.setPfTemp((prev: any) => ({ ...prev, avatar_url: value }));
     };
 
     return (

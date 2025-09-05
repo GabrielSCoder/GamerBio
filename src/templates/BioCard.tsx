@@ -1,6 +1,4 @@
-import { useState } from "react";
 import Avatar from "../components/Avatar";
-import classNames from "../util/classNames";
 import Plataformas from "./Plataformas";
 
 const h1Style = "text-center text-4xl font-extrabold my-2 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(0,255,255,0.7)] leading-tight"
