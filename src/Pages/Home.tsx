@@ -43,6 +43,10 @@ export default function HomePage() {
                     senha={senha} erroMsgRegistro={erroMsgRegistro} setSenhaConfirmacao={setSenhaConfirmacao} dataNascimento={dataNascimento} senhaConfirmacao={senhaConfirmacao} setDataNascimento={setDataNascimento} />}
                 {opt == 1 && registroConc && <Concluido setOpt={setOpt} />}
             </div>
+            <div className="fixed bottom-1">
+                <a href="https://github.com/GabrielSCoder/GamerBio" target="_blank" className="text-gray-600">Repositório</a>
+                <p>Desenvolvido por Gabriel Sena. 2025</p>
+            </div>
         </div>
 
     )
