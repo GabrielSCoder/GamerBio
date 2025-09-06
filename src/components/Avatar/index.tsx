@@ -6,7 +6,7 @@ export default function Avatar(props: { ProfileAvatarUrl?: string; modo: string;
 
     return (
         <div
-            className="relative rounded-full h-[128px] w-[128px] overflow-hidden flex justify-center items-center 
+            className="relative rounded-full h-[140px] w-[140px] overflow-hidden flex justify-center items-center 
                 border-4 border-transparent bg-gradient-to-r from-cyan-400 to-purple-500 p-[2px] shadow-lg shadow-cyan-500/30
                 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,255,0.7)] transition-all duration-300 [transform:translateZ(0)]"
             onMouseEnter={() => setHover(true)}
