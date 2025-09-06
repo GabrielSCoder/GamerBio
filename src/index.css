@@ -7,7 +7,6 @@
   background: radial-gradient(circle at top, #18181c 0%, #0d0d10 100%);
 }
 
-/* Tema claro */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -73,15 +72,4 @@ body::before {
     linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
   pointer-events: none;
-}
-
-
-@keyframes moveGrid {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(0);
-  }
 }

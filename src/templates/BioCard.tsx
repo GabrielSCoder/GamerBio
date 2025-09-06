@@ -19,27 +19,37 @@ export default function BioCard(props: { modo: any, toggleFlip: any, flipped: bo
                         : undefined,
             }}
         >
-
-            <div className="absolute w-full h-full flex flex-col items-center justify-start bg-[#242428] text-white rounded-xl [backface-visibility:hidden] shadow-lg shadow-cyan-500/20 p-4">
-
-                <div className="flex flex-col items-center justify-center w-full h-[250px]">
-                    <Avatar ProfileAvatarUrl={props.profileData.avatar_url} modo={props.modo} onEdit={props.setAvatarModal} />
+            <div className="absolute w-full h-full flex flex-col items-center justify-start bg-[#242428] text-white rounded-2xl [backface-visibility:hidden] shadow-xl shadow-cyan-500/20 p-6">
+                <div className="flex flex-col items-center justify-center w-full h-[300px]">
+                    <Avatar
+                        ProfileAvatarUrl={props.profileData.avatar_url}
+                        modo={props.modo}
+                        onEdit={props.setAvatarModal}
+                    />
                     <h1 className={h1Style}>
                         {props.profileData.usuario}
                     </h1>
-                    {props.modo == "editar" ? <button className="p-2" onClick={() => props.setBioModal(true)}>Editar usuário</button> : ""}
+                    {props.modo === "editar" && (
+                        <button
+                            className="mt-2 px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-700 transition text-white text-base"
+                            onClick={() => props.setBioModal(true)}
+                        >
+                            Editar usuário
+                        </button>
+                    )}
                 </div>
-
-
-                <div className="flex flex-col h-[250px] bg-[#202024] m-4 mx-10 rounded-2xl gap-2 p-4 shadow-inner shadow-black/50 w-full [will-change:transform]">
-                    <p className="text-gray-300 text-lg leading-relaxed h-full m-0 p-0 whitespace-pre-line break-words antialiased [will-change:transform]">
+                <div className="flex flex-col min-h-[150px] bg-[#202024] m-6 rounded-2xl gap-3 p-6 shadow-inner shadow-black/50 w-full">
+                    <p className="text-gray-300 text-xl leading-relaxed h-full whitespace-pre-line break-words antialiased">
                         {props.profileData.texto_bio ?? "biografia vazia"}
                     </p>
                 </div>
             </div>
-
-
-            <Plataformas modo={props.modo} setUrlModal={props.setUrlModal} url={props.urls} />
+            <Plataformas
+                modo={props.modo}
+                setUrlModal={props.setUrlModal}
+                url={props.urls}
+            />
         </div>
+
     )
 }

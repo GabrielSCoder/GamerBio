@@ -96,81 +96,89 @@ export default function Profile() {
     }
 
     return (
-        <div className="flex flex-col relative">
-            {modo === "editar" && <button className="p-2 hover:cursor-pointer self-center text-center absolute top-0 left-1 z-20" onClick={() => toggleFlip()}>Girar</button>}
-            <div className="group [perspective:1000px] w-[500px] h-[500px]">
-                <BioCard modo={modo} flipped={flipped} toggleFlip={toggleFlip} setUrlModal={setUrlModal} profileData={profileData} urls={urls} setAvatarModal={setAvatarModal}
-                    setBioModal={setBioModal}
+        <>
+            <div className="flex-col relative hidden lg:flex">
+
+                {modo === "editar" && <button className="p-2 hover:cursor-pointer self-center text-center absolute top-0 left-1 z-20" onClick={() => toggleFlip()}>Girar</button>}
+                <div className="group [perspective:1000px] w-[500px] h-[500px]">
+                    <BioCard modo={modo} flipped={flipped} toggleFlip={toggleFlip} setUrlModal={setUrlModal} profileData={profileData} urls={urls} setAvatarModal={setAvatarModal}
+                        setBioModal={setBioModal}
+                    />
+                </div>
+
+                <div className="flex flex-col justify-center items-center gap-2">
+                    <GamesFavoritos setModal={toggleFavoriteCircle} favoGames={favoGames} modo={modo} />
+                    {logado && LogadoProfileData && LogadoProfileData.id == profileData.id ? <button className="p-2 hover:cursor-pointer self-center text-center" onClick={() => toggleModo()}>{modo == "ver" ? "Editar" : "Finalizar edição"}</button> : ""}
+                </div>
+
+                <div className="fixed bottom-2 right-2">
+                    {!logado ? (
+
+                        <button
+                            className="p-2 hover:cursor-pointer"
+                            onClick={() => nav("/")}
+                        >
+                            Crie o seu!
+                        </button>
+                    ) : LogadoProfileData && profileData && LogadoProfileData.id === profileData.id ? (
+
+                        <button
+                            className="p-2 hover:cursor-pointer"
+                            onClick={() => logout()}
+                        >
+                            Sair
+                        </button>
+                    ) : null
+                    }
+                </div>
+
+                <FavoriteGameModal setSearch={setSearch} findGame={handleFind} data={data} modal={modal} setModal={toggleFavoriteCircle} setFavoGameByOrd={setFavoGameByOrd}
+                    setData={setData} />
+
+                <UrlModal
+                    modal={urlModal}
+                    setModal={setUrlModal}
+                    links={linksTemp}
+                    setLinks={setLinksTemp}
+                    setConfirmModal={handleSaveUrls}
+                />
+
+                <ConfirmModal
+                    titulo="Confirmar alterações"
+                    mensagem="Deseja salvar essas alterações?"
+                    modal={confirmModal}
+                    setModal={setConfirmModal}
+                    onConfirm={() => {
+                        if (confirmAction) confirmAction();
+                        setUrlModal(false);
+                        setBioModal(false)
+                        setAvatarModal(false);
+                        setConfirmModal(false);
+                    }}
+                />
+
+                <AvatarModal
+                    modal={avatarModal}
+                    pfTemp={pfTemp}
+                    setModal={setAvatarModal}
+                    setPfTemp={setPfTemp}
+                    setConfirmModal={handleSaveAvatar}
+                />
+
+                <UsuarioBioModal
+                    modal={bioModal}
+                    setModal={setBioModal}
+                    pfTemp={pfTemp}
+                    setPfTemp={setPfTemp}
+                    setConfirmModal={handleSaveAvatar}
                 />
             </div>
-
-            <div className="flex flex-col justify-center items-center gap-2">
-                <GamesFavoritos setModal={toggleFavoriteCircle} favoGames={favoGames} modo={modo} />
-                {logado && LogadoProfileData && LogadoProfileData.id == profileData.id ? <button className="p-2 hover:cursor-pointer self-center text-center" onClick={() => toggleModo()}>{modo == "ver" ? "Editar" : "Finalizar edição"}</button> : ""}
+            <div className="lg:hidden flex">
+                <h5 className="text-4xl text-center font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent drop-shadow-md">
+                    Versão indisponível para mobile
+                </h5>
             </div>
-
-            <div className="fixed bottom-2 right-2">
-                {!logado ? (
-
-                    <button
-                        className="p-2 hover:cursor-pointer"
-                        onClick={() => nav("/")}
-                    >
-                        Crie o seu!
-                    </button>
-                ) : LogadoProfileData && profileData && LogadoProfileData.id === profileData.id ? (
-
-                    <button
-                        className="p-2 hover:cursor-pointer"
-                        onClick={() => logout()}
-                    >
-                        Sair
-                    </button>
-                ) : null
-                }
-            </div>
-
-            <FavoriteGameModal setSearch={setSearch} findGame={handleFind} data={data} modal={modal} setModal={toggleFavoriteCircle} setFavoGameByOrd={setFavoGameByOrd}
-                setData={setData} />
-
-            <UrlModal
-                modal={urlModal}
-                setModal={setUrlModal}
-                links={linksTemp}
-                setLinks={setLinksTemp}
-                setConfirmModal={handleSaveUrls}
-            />
-
-            <ConfirmModal
-                titulo="Confirmar alterações"
-                mensagem="Deseja salvar essas alterações?"
-                modal={confirmModal}
-                setModal={setConfirmModal}
-                onConfirm={() => {
-                    if (confirmAction) confirmAction();
-                    setUrlModal(false);
-                    setBioModal(false)
-                    setAvatarModal(false);
-                    setConfirmModal(false);
-                }}
-            />
-
-            <AvatarModal
-                modal={avatarModal}
-                pfTemp={pfTemp}
-                setModal={setAvatarModal}
-                setPfTemp={setPfTemp}
-                setConfirmModal={handleSaveAvatar}
-            />
-
-            <UsuarioBioModal
-                modal={bioModal}
-                setModal={setBioModal}
-                pfTemp={pfTemp}
-                setPfTemp={setPfTemp}
-                setConfirmModal={handleSaveAvatar}
-            />
-        </div>
+        </>
 
     )
 }

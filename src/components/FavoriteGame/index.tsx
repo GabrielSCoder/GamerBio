@@ -10,7 +10,7 @@ export default function FavoriteGame({ url, nome, className, ...rest }: Favorite
         <div
             {...rest}
             className={`
-        group h-[80px] w-[80px] rounded-full relative hover:cursor-pointer 
+        group h-[60px] w-[60px] lg:h-[80px] lg:w-[80px] rounded-full relative hover:cursor-pointer 
         hover:scale-105 transition-transform shadow-md 
         hover:shadow-[0_0_20px_rgba(0,255,255,0.8)]
         ${className ?? ""}

@@ -14,7 +14,7 @@ export default function GamesFavoritos(props: { setModal: any, favoGames: any[],
 
             </div>
             {hasGames || props.modo == "editar" ? (
-                <div className="mt-4 h-[100px] flex items-center p-2 gap-5 justify-center">
+                <div className="mt-4 h-[100px] md:flex items-center p-2 gap-5 justify-center grid grid-cols-3">
                     {props.favoGames.map((fav) => {
 
                         const hasData = !!fav.data.titulo;
