@@ -174,7 +174,7 @@ export default function Profile() {
                 />
             </div>
             <div className="lg:hidden flex">
-                <h5 className="text-4xl text-center font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent drop-shadow-md">
+                <h5 className="text-3xl text-center font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent drop-shadow-md">
                     Versão indisponível para mobile
                 </h5>
             </div>
